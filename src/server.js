@@ -1,9 +1,18 @@
 import express from "express";
 import recipesRoutes from "./routes/recipesRoutes.js";
+import { connectDB } from "./config/db.js";
+import dotenv from "dotenv"
 
+dotenv.config();
+
+console.log(process.env.MONGO_URI);
 const app = express();
+ 
+connectDB()
 
 app.use("/api/recipes", recipesRoutes);
+
+
 
 //app.get("/api/recipes", (reg, res) =>{
  //   res.status(200).send("you got 10 recipes");
@@ -23,5 +32,5 @@ app.use("/api/recipes", recipesRoutes);
 
 
 app.listen(5001, () => {
-    console.log("server started on PORP: 5001");
+    console.log("server started on PORT: 5001");
 } );
