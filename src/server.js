@@ -7,6 +7,7 @@ dotenv.config();
 
 console.log(process.env.MONGO_URI);
 const app = express();
+const PORT = process.env.PORT || 5001;
  
 connectDB()
 
@@ -31,6 +32,6 @@ app.use("/api/recipes", recipesRoutes);
 // });
 
 
-app.listen(5001, () => {
-    console.log("server started on PORT: 5001");
+app.listen(PORT, () => {
+    console.log("server started on PORT:",PORT);
 } );
