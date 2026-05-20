@@ -53,7 +53,6 @@ export async function  deleteRecipe(req, res) {
     console.error("Error in deleteRecipe controller",error);
     res.status(500).json({message:"internal server error"})
 
-
   }
 
 }
