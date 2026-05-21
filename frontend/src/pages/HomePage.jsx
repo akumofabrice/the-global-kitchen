@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import RecipeCard from '../components/RecipeCard'
 import axios from "axios"
+import api from "../lib/axios"
 
 const HomePage = () => {
   // fetch recipes
@@ -11,7 +12,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () =>{
       try {
-        const res = await axios.get("http://localhost:5001/api/recipes");
+        // calling our backend also check the lib/axios
+        const res = await api.get("/recipes");
 
         console.log(res.data);
         setRecipes(res.data);
