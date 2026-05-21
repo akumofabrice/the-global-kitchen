@@ -3,13 +3,12 @@ import mongoose from "mongoose";
 //1 create a schema
 //2 model based off of that schema 
 
-
 const recipeSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: [true, 'Recipe title is required'], // Validation rule: constraint
-      trim: true, // Data hygiene: automatically strips accidental spaces
+      trim: true, 
     },
     ingredients: {
       type: [String], // Proper utilization of BSON array data type
@@ -20,9 +19,9 @@ const recipeSchema = new mongoose.Schema(
       required: [true, 'Cooking instructions are required'],
     },
     cookingTime: {
-      type: Number, // Data Type optimization: explicit number, not a string
+      type: Number, 
       required: [true, 'Cooking time is required'],
-      min: [1, 'Cooking time must be a positive number'], // Validation constraint
+      min: [1, 'Cooking time must be a positive number'], 
     },
     difficulty: {
       type: String,
@@ -36,7 +35,7 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Category is required'],
       trim: true,
-      index: true, // Indexing: defined on a field expected to handle heavy lookup filtering
+      index: true, 
     },
   },
   {
