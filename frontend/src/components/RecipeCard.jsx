@@ -1,6 +1,7 @@
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
 import { Link } from "react-router";
 import { formatDate } from "../lib/utils";
+import api from "../lib/axios"
 
 import toast from "react-hot-toast";
 
@@ -14,8 +15,8 @@ const RecipeCard = ({ recipe, setRecipes }) => {
     }
 
     try {
-      await api.delete(`/recipe/${id}`);
-      setRecipes((prev) => prev.filter((note) => note._id !== id));
+      await api.delete(`/recipes/${id}`);
+      setRecipes((prev) => prev.filter((recipe) => recipe._id !== id));
       toast.success("Recipe deleted successfully");
     } catch (error) {
       console.log("Error in handleDelete", error);
